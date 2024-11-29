@@ -57,8 +57,10 @@ public class BaiTap3 {
     public void run(){
         //Lấy mảng từ file
         Integer[] numbers = Objects.requireNonNull(getFilenumbersay());
-        //Hiển thị sau khi sắp xếp 
+        //Hiển thị sau khi sắp xếp
+        long thoiGianBatDau = System.currentTimeMillis();
         System.out.println(Arrays.stream(quickSort(numbers, 0, numbers.length -1)).toList());
+        System.out.println("Tong thoi gian sap xep: " + (System.currentTimeMillis() - thoiGianBatDau) + " ms.");
     }
 
     public static void main(String[] args) {
