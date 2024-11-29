@@ -1,13 +1,17 @@
-//Sắp xếp 1 mảng các số nguyên từ file input.txt bằng quick sort. các số cách nhau bằng dấu cách hoặc xuống dòng.
+import jdk.jfr.Description;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Sắp xếp 1 mảng các số nguyên từ file input.txt bằng quick sort. các số cách nhau bằng dấu cách hoặc xuống dòng.
+ */
 public class BaiTap3 {
+    @Description("Lấy mảng các số cần sắp sếp từ file input")
     private Integer[] getFileArray(){
-        //Lấy mảng các số cần sắp sếp từ file input
         try {
             //đọc file chuyển vào mảng String
             BufferedReader reader = new BufferedReader(new FileReader("./src/input.txt"));
@@ -23,7 +27,7 @@ public class BaiTap3 {
             return null;
         }
     }
-
+    @Description("Sắp xếp mảng bằng quick sort")
     private Integer[] quickSort(Integer[] numbers, int begin, int end){
         //dừng đệ quy nếu index begin >= end
         if (begin >= end)
@@ -35,7 +39,7 @@ public class BaiTap3 {
         quickSort(numbers, pivot + 1, end);
         return numbers;
     }
-    //hàm phụ trợ của quick sort, giúp tìm ra vị trí trục trung tâm
+    @Description("hàm phụ trợ của quick sort, giúp tìm ra vị trí trục trung tâm")
     private int partition(Integer[] numbers, int begin, int end){
         int pivot = numbers[end];
         int i = begin - 1;
@@ -55,7 +59,6 @@ public class BaiTap3 {
         return i;
     }
     public void run(){
-        //Lấy mảng từ file
         Integer[] numbers = Objects.requireNonNull(getFileArray());
         //Hiển thị sau khi sắp xếp
         long thoiGianBatDau = System.currentTimeMillis();

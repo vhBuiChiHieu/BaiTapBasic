@@ -1,15 +1,19 @@
-//Viết chương trình console, thực hiện nhập thông tin n sinh viên (tên, giới tính, quê quán, tuổi)
-//Sau khi nhập bấm enter để insert thông tin sinh vien vào DB, giả thiết tên không được trùng nhau, id tự tăng.
+import jdk.jfr.Description;
+
 import java.io.FileInputStream;
 import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
 
+/**
+ * Viết chương trình console, thực hiện nhập thông tin n sinh viên (tên, giới tính, quê quán, tuổi).
+ * Sau khi nhập bấm enter để insert thông tin sinh vien vào DB, giả thiết tên không được trùng nhau, id tự tăng.
+ */
 public class BaiTap4 {
     Connection connection;
     Scanner sc;
     PreparedStatement stm;
-    //hàm kết nối database với thông tin từ file config
+    @Description("Hàm kết nối database với thông tin từ file config")
     private void getConnection(){
         try (FileInputStream fis = new FileInputStream("./src/config.properties")) {
             Properties properties = new Properties();
@@ -24,7 +28,7 @@ public class BaiTap4 {
             e.printStackTrace();
         }
     }
-    //Thêm 1 SinhVien vào bảng sinhvien
+    @Description("Thêm 1 SinhVien vào bảng sinhvien")
     private void insert(SinhVien sinhvien){
         try {
             String sql = "INSERT INTO sinhvien(ten,gioitinh,quequan,tuoi) VALUES (?,?,?,?)";
@@ -43,7 +47,7 @@ public class BaiTap4 {
             e.printStackTrace();
         }
     }
-    //Kiểm tra điều kiện tên sinh viên, nếu chưa có tên trong bảng trả về true, nếu đã tồn tại trả về false
+    @Description("Kiểm tra điều kiện tên sinh viên, nếu chưa có tên trong bảng trả về true, nếu đã tồn tại trả về false")
     private boolean checkName(String name){
         try {
             String sql = "SELECT id FROM sinhvien WHERE ten = ?";
@@ -56,7 +60,7 @@ public class BaiTap4 {
             return false;
         }
     }
-    //Nhập Danh sách thông tin sinh viên, thêm vào bảng
+    @Description("Nhập Danh sách thông tin sinh viên, xác nhận thêm")
     private void addListSinhVien(int n){
         SinhVien[] sinhvien = new SinhVien[n];
         for (int i = 0; i < n; i++){

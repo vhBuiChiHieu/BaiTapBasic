@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
 
-@Description("""
-        Viết chương trình nhập 1 số cho tới khi nhập đúng số cần nhập thì hiện thông báo thành công.
-        Số lần nhập tối đa 5 lần nếu nhập sai thì sẽ dừng chương trình và hiện thông báo nhập lỗi.
-        Các tham số được lưu trữ trong các file cấu hình.
-        """)
+/**
+ * Viết chương trình nhập 1 số cho tới khi nhập đúng số cần nhập thì hiện thông báo thành công.
+ * Số lần nhập tối đa 5 lần nếu nhập sai thì sẽ dừng chương trình và hiện thông báo nhập lỗi.
+ * Các tham số được lưu trữ trong các file cấu hình.
+ */
 public class BaiTap1 {
     private int max_time;
     private int correct_number;

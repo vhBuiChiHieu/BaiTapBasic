@@ -1,16 +1,20 @@
-//Viết chương trình tính tiền điện, cho phép nhập số điện đã dùng trong tháng,
-// 100 số đầu giá 1000, từ các số sau đến 150 giá 1500, các số còn lại giá 2000
-//Tham số lấy từ file config
+import jdk.jfr.Description;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
 
+/**
+ *      Viết chương trình tính tiền điện, cho phép nhập số điện đã dùng trong tháng,
+ *      100 số đầu giá 1000, từ các số sau đến 150 giá 1500, các số còn lại giá 2000.
+ *      Tham số lấy từ file config.
+*/
 public class BaiTap2 {
     private int mocDien1, mocDien2, giaMuc1, giaMuc2, giaMuc3;
     public BaiTap2(){}
+    @Description("Lấy các mức giá điện và mốc số điện từ file config")
     public void loadConfig(){
-        //Lấy các mức giá điện và mốc số điện từ file config
         Properties prt = new Properties();
         try (FileInputStream fis = new FileInputStream("src/config.properties")){
             prt.load(fis);
@@ -25,8 +29,8 @@ public class BaiTap2 {
             e.printStackTrace();
         }
     }
+    @Description("Nhập số điện và tính thành tiền")
     public void calculate(){
-        //lấy số điện
         System.out.print("Nhap so dien: ");
         int soDien = new Scanner(System.in).nextInt();
         int tongTienDien = 0;
