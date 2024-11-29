@@ -6,58 +6,59 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class BaiTap3 {
-    private Integer[] getFileArray(){
+    private Integer[] getFilenumbersay(){
         //Lấy mảng các số cần sắp sếp từ file input
         try {
             //đọc file chuyển vào mảng String
             BufferedReader reader = new BufferedReader(new FileReader("./src/input.txt"));
-            String[] arrString = reader.readLine().split(" ");
+            String[] numbersString = reader.readLine().split(" ");
             //Chuyển thành mảng Integer
-            Integer[] arr = new Integer[arrString.length];
-            for (int i = 0; i < arrString.length; i++){
-                arr[i] = Integer.parseInt(arrString[i]);
+            Integer[] numbers = new Integer[numbersString.length];
+            for (int i = 0; i < numbersString.length; i++){
+                numbers[i] = Integer.parseInt(numbersString[i]);
             }
-            return arr;
+            return numbers;
         } catch (IOException e){
             e.printStackTrace();
             return null;
         }
     }
 
-    private Integer[] quickSort(Integer[] arr, int begin, int end){
+    private Integer[] quickSort(Integer[] numbers, int begin, int end){
         //dừng đệ quy nếu index begin >= end
         if (begin >= end)
-            return arr;
+            return numbers;
         //lấy index trục
-        int pivot = partition(arr, begin, end);
+        int pivot = partition(numbers, begin, end);
         //Đệ quy 2 phần của trục trung tâm
-        quickSort(arr, begin, pivot - 1);
-        quickSort(arr, pivot + 1, end);
-        return arr;
+        quickSort(numbers, begin, pivot - 1);
+        quickSort(numbers, pivot + 1, end);
+        return numbers;
     }
     //hàm phụ trợ của quick sort, giúp tìm ra vị trí trục trung tâm
-    private int partition(Integer[] arr, int begin, int end){
-        int pivot = arr[end];
+    private int partition(Integer[] numbers, int begin, int end){
+        int pivot = numbers[end];
         int i = begin - 1;
         for (int j = begin; j <= end - 1; j++){
-            if (arr[j] < pivot){
+            if (numbers[j] < pivot){
                 i++;
-                int tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
+                int tmp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = tmp;
             }
         }
         i++;
-        int tmp = arr[i];
-        arr[i] = arr[end];
-        arr[end] = tmp;
+        int tmp = numbers[i];
+        numbers[i] = numbers[end];
+        numbers[end] = tmp;
 
         return i;
     }
     public void run(){
-        //lấy mảng đã được sắp xếp để hiển thị
-        Integer[] arr = Objects.requireNonNull(getFileArray());
-        System.out.println(Arrays.stream(quickSort(arr, 0, arr.length -1)).toList());
+        //Lấy mảng từ file
+        Integer[] numbers = Objects.requireNonNull(getFilenumbersay());
+        //Hiển thị sau khi sắp xếp 
+        System.out.println(Arrays.stream(quickSort(numbers, 0, numbers.length -1)).toList());
     }
 
     public static void main(String[] args) {
