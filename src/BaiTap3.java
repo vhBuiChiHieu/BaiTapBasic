@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class BaiTap3 {
-    private Integer[] getFilenumbersay(){
+    private Integer[] getFileArray(){
         //Lấy mảng các số cần sắp sếp từ file input
         try {
             //đọc file chuyển vào mảng String
@@ -56,7 +56,7 @@ public class BaiTap3 {
     }
     public void run(){
         //Lấy mảng từ file
-        Integer[] numbers = Objects.requireNonNull(getFilenumbersay());
+        Integer[] numbers = Objects.requireNonNull(getFileArray());
         //Hiển thị sau khi sắp xếp
         long thoiGianBatDau = System.currentTimeMillis();
         System.out.println(Arrays.stream(quickSort(numbers, 0, numbers.length -1)).toList());
