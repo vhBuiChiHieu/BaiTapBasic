@@ -14,8 +14,10 @@ public class BaiTap2 {
         Properties prt = new Properties();
         try (FileInputStream fis = new FileInputStream("src/config.properties")){
             prt.load(fis);
+            //lay cac moc dien
             max1 = Integer.parseInt(prt.getProperty("max1"));
             max2 = Integer.parseInt(prt.getProperty("max2"));
+            //lay muc gia dien
             p_1 = Integer.parseInt(prt.getProperty("p_1"));
             p_2 = Integer.parseInt(prt.getProperty("p_2"));
             p_3 = Integer.parseInt(prt.getProperty("p_3"));

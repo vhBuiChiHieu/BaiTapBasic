@@ -5,7 +5,7 @@ public class SinhVien {
     private char gioiTinh;
     private String queQuan;
     private int tuoi;
-    public SinhVien(){};
+    public SinhVien(){}
     public void getInfo(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Ten: ");
