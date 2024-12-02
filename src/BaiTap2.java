@@ -15,19 +15,11 @@ public class BaiTap2 {
     public BaiTap2(){}
     @Description("Lấy các mức giá điện và mốc số điện từ file config")
     public void loadConfig(){
-        Properties prt = new Properties();
-        try (FileInputStream fis = new FileInputStream("src/config.properties")){
-            prt.load(fis);
-            //lấy các mốc số điện
-            mocDien1 = Integer.parseInt(prt.getProperty("mocDien1"));
-            mocDien2 = Integer.parseInt(prt.getProperty("mocDien2"));
-            //lấy giá tiền điện các mức 1 2 3
-            giaMuc1 = Integer.parseInt(prt.getProperty("giaMuc1"));
-            giaMuc2 = Integer.parseInt(prt.getProperty("giaMuc2"));
-            giaMuc3 = Integer.parseInt(prt.getProperty("giaMuc3"));
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        mocDien1 = Integer.parseInt(ConfigUtil.get("mocDien1"));
+        mocDien2 = Integer.parseInt(ConfigUtil.get("mocDien2"));
+        giaMuc1 = Integer.parseInt(ConfigUtil.get("giaMuc1"));
+        giaMuc2 = Integer.parseInt(ConfigUtil.get("giaMuc2"));
+        giaMuc3 = Integer.parseInt(ConfigUtil.get("giaMuc3"));
     }
     @Description("Nhập số điện và tính thành tiền")
     public void calculate(){

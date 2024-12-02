@@ -15,12 +15,10 @@ public class BaiTap4 {
     PreparedStatement stm;
     @Description("Hàm kết nối database với thông tin từ file config")
     private void getConnection(){
-        try (FileInputStream fis = new FileInputStream("./src/config.properties")) {
-            Properties properties = new Properties();
-            properties.load(fis);
-            String url = properties.getProperty("db.url");
-            String username = properties.getProperty("db.username");
-            String password = properties.getProperty("db.password");
+        try {
+            String url = ConfigUtil.get("db.url");
+            String username = ConfigUtil.get("db.username");
+            String password = ConfigUtil.get("db.password");
             //kết nối database
             Class.forName("oracle.jdbc.driver.OracleDriver");
             connection = DriverManager.getConnection(url, username, password);

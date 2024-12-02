@@ -19,16 +19,8 @@ public class BaiTap1 {
     }
     @Description("Lấy tham số từ file config")
     private void loadConfig(){
-        try (FileInputStream ips = new FileInputStream("src/config.properties")){
-            Properties prt = new Properties();
-            prt.load(ips);
-            max_time = Integer.parseInt(prt.getProperty("max_time"));   //Số lần nhập tối đa
-            correct_number = Integer.parseInt(prt.getProperty("correct_number"));   //số chính xác mong muốn
-            if (max_time <= 0 )
-                throw new IllegalArgumentException("Dữ liệu đầu vào không hợp lệ");
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        max_time = Integer.parseInt(ConfigUtil.get("max_time"));
+        correct_number = Integer.parseInt(ConfigUtil.get("correct_number"));
     }
     @Description("Kiểm tra số được nhập")
     public void checkNumber() {
