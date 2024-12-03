@@ -1,9 +1,61 @@
-11:14:30 03-12-2024 INFO  ConfigUtil - Bat dau tai file config....
-11:14:30 03-12-2024 INFO  ConfigUtil - Tai file config thanh cong.
-11:30:33 03-12-2024 INFO  ConfigUtil - Bat dau tai file config....
-11:30:33 03-12-2024 INFO  ConfigUtil - Tai file config thanh cong.
-11:31:33 03-12-2024 INFO  ConfigUtil - Bat dau tai file config....
-11:31:33 03-12-2024 INFO  ConfigUtil - Tai file config thanh cong.
-11:31:33 03-12-2024 WARN  ConfigUtil - Khong tim thay max_time
-11:32:36 03-12-2024 INFO  ConfigUtil - Bat dau tai file config....
-11:32:36 03-12-2024 INFO  ConfigUtil - Tai file config thanh cong.
+[16:05:34 03-12-2024] [INFO] ConfigUtil - Bat dau tai file config....
+[16:05:34 03-12-2024] [INFO] ConfigUtil - Tai file config thanh cong.
+[16:05:48 03-12-2024] [INFO] ConfigUtil - Bat dau tai file config....
+[16:05:48 03-12-2024] [INFO] ConfigUtil - Tai file config thanh cong.
+[16:05:48 03-12-2024] [WARN] ConfigUtil - Khong tim thay max_time
+[16:05:48 03-12-2024] [ERROR] BaiTap1 - Du lieu dau vao khong hop le
+java.lang.NumberFormatException: Cannot parse null string
+	at java.base/java.lang.Integer.parseInt(Integer.java:630)
+	at java.base/java.lang.Integer.parseInt(Integer.java:786)
+	at BaiTap1.loadConfig(BaiTap1.java:23)
+	at BaiTap1.run(BaiTap1.java:45)
+	at BaiTap1.main(BaiTap1.java:48)
+[16:06:58 03-12-2024] [INFO] ConfigUtil - Bat dau tai file config....
+[16:06:58 03-12-2024] [INFO] ConfigUtil - Tai file config thanh cong.
+[16:06:58 03-12-2024] [WARN] BaiTap1 - Du lieu dau vao khong hop le
+java.lang.IllegalArgumentException: Max_time khong the nho hon 0
+	at BaiTap1.loadConfig(BaiTap1.java:24)
+	at BaiTap1.run(BaiTap1.java:44)
+	at BaiTap1.main(BaiTap1.java:47)
+[16:13:26 03-12-2024] [INFO] ConfigUtil - Bat dau tai file config....
+[16:13:26 03-12-2024] [INFO] ConfigUtil - Tai file config thanh cong.
+[16:13:26 03-12-2024] [INFO] BaiTap2 - Tai tham so thanh cong
+[16:14:10 03-12-2024] [INFO] ConfigUtil - Bat dau tai file config....
+[16:14:10 03-12-2024] [INFO] ConfigUtil - Tai file config thanh cong.
+[16:14:10 03-12-2024] [ERROR] BaiTap2 - Tham so dau vao khong hop le
+java.lang.NumberFormatException: For input string: "100e"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at java.base/java.lang.Integer.parseInt(Integer.java:786)
+	at BaiTap2.loadConfig(BaiTap2.java:21)
+	at BaiTap2.run(BaiTap2.java:47)
+	at BaiTap2.main(BaiTap2.java:51)
+[16:15:12 03-12-2024] [INFO] ConfigUtil - Bat dau tai file config....
+[16:15:12 03-12-2024] [INFO] ConfigUtil - Tai file config thanh cong.
+[16:15:12 03-12-2024] [INFO] BaiTap1 - Tai tham so thanh cong.
+[16:15:18 03-12-2024] [INFO] ConfigUtil - Bat dau tai file config....
+[16:15:18 03-12-2024] [INFO] ConfigUtil - Tai file config thanh cong.
+[16:15:18 03-12-2024] [ERROR] BaiTap2 - Tham so dau vao khong hop le
+java.lang.NumberFormatException: For input string: "100e"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at java.base/java.lang.Integer.parseInt(Integer.java:786)
+	at BaiTap2.loadConfig(BaiTap2.java:21)
+	at BaiTap2.run(BaiTap2.java:47)
+	at BaiTap2.main(BaiTap2.java:51)
+[16:16:07 03-12-2024] [FATAL] ConfigUtil - Khong the tai file ./src/config.properties
+java.io.FileNotFoundException: .\src\config.properies (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at ConfigUtil.<clinit>(ConfigUtil.java:17)
+	at BaiTap2.loadConfig(BaiTap2.java:21)
+	at BaiTap2.run(BaiTap2.java:47)
+	at BaiTap2.main(BaiTap2.java:51)
+[16:24:12 03-12-2024] [INFO] BaiTap3 - Tai input thanh cong
+[16:24:13 03-12-2024] [INFO] BaiTap3 - Tong thoi gian sap xep: 475 ms.
+[16:24:18 03-12-2024] [INFO] BaiTap3 - Tai input thanh cong
+[16:24:19 03-12-2024] [INFO] BaiTap3 - Tong thoi gian sap xep: 486 ms.
+[16:24:44 03-12-2024] [INFO] BaiTap3 - Tai input thanh cong
+[16:24:44 03-12-2024] [INFO] BaiTap3 - Tong thoi gian sap xep: 439 ms.

@@ -1,8 +1,7 @@
 import jdk.jfr.Description;
+import org.apache.log4j.Logger;
 
-import java.io.FileInputStream;
 import java.sql.*;
-import java.util.Properties;
 import java.util.Scanner;
 
 /**
@@ -10,9 +9,11 @@ import java.util.Scanner;
  * Sau khi nhập bấm enter để insert thông tin sinh vien vào DB, giả thiết tên không được trùng nhau, id tự tăng.
  */
 public class BaiTap4 {
+    private static final Logger bt4Logger = Logger.getLogger(BaiTap4.class);
     Connection connection;
     Scanner sc;
     PreparedStatement stm;
+
     @Description("Hàm kết nối database với thông tin từ file config")
     private void getConnection(){
         try {
@@ -23,9 +24,11 @@ public class BaiTap4 {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             connection = DriverManager.getConnection(url, username, password);
         } catch (Exception e){
-            e.printStackTrace();
+            bt4Logger.fatal("Khong the ket noi database", e);
+            System.exit(0);
         }
     }
+
     @Description("Thêm 1 SinhVien vào bảng sinhvien")
     private void insert(SinhVien sinhvien){
         try {
@@ -38,13 +41,14 @@ public class BaiTap4 {
             int i = stm.executeUpdate();
             //kiểm tra kết quả truy vấn
             if (i > 0){
-                System.out.println("\nThem Thanh Cong!");
+                bt4Logger.info("Them sinh vien Thanh Cong");
             } else
-                System.out.println("\nThem That Bai!");
+                bt4Logger.error("Them sinh vien That Bai");
         } catch (SQLException e){
-            e.printStackTrace();
+            bt4Logger.error("Truy van that bai", e);
         }
     }
+
     @Description("Kiểm tra điều kiện tên sinh viên, nếu chưa có tên trong bảng trả về true, nếu đã tồn tại trả về false")
     private boolean checkName(String name){
         try {
@@ -54,10 +58,11 @@ public class BaiTap4 {
             ResultSet rs = stm.executeQuery();
             return !rs.next();
         } catch (SQLException e){
-            e.printStackTrace();
+            bt4Logger.warn("Kiem tra ten that bai", e);
             return false;
         }
     }
+
     @Description("Nhập Danh sách thông tin sinh viên, xác nhận thêm")
     private void addListSinhVien(int n){
         SinhVien[] sinhvien = new SinhVien[n];
@@ -79,6 +84,7 @@ public class BaiTap4 {
             }
         }
     }
+
     public void run(){
         getConnection();
         sc = new Scanner(System.in);

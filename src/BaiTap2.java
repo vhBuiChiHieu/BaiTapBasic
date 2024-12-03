@@ -1,4 +1,5 @@
 import jdk.jfr.Description;
+import org.apache.log4j.Logger;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,16 +12,24 @@ import java.util.Scanner;
  *      Tham số lấy từ file config.
 */
 public class BaiTap2 {
+    private static final Logger bt2Logger = Logger.getLogger(BaiTap2.class);
     private int mocDien1, mocDien2, giaMuc1, giaMuc2, giaMuc3;
     public BaiTap2(){}
+
     @Description("Lấy các mức giá điện và mốc số điện từ file config")
     public void loadConfig(){
-        mocDien1 = Integer.parseInt(ConfigUtil.get("mocDien1"));
-        mocDien2 = Integer.parseInt(ConfigUtil.get("mocDien2"));
-        giaMuc1 = Integer.parseInt(ConfigUtil.get("giaMuc1"));
-        giaMuc2 = Integer.parseInt(ConfigUtil.get("giaMuc2"));
-        giaMuc3 = Integer.parseInt(ConfigUtil.get("giaMuc3"));
+        try {
+            mocDien1 = Integer.parseInt(ConfigUtil.get("mocDien1"));
+            mocDien2 = Integer.parseInt(ConfigUtil.get("mocDien2"));
+            giaMuc1 = Integer.parseInt(ConfigUtil.get("giaMuc1"));
+            giaMuc2 = Integer.parseInt(ConfigUtil.get("giaMuc2"));
+            giaMuc3 = Integer.parseInt(ConfigUtil.get("giaMuc3"));
+            bt2Logger.info("Tai tham so thanh cong");
+        } catch (Exception e){
+            bt2Logger.error("Tham so dau vao khong hop le", e);
+        }
     }
+
     @Description("Nhập số điện và tính thành tiền")
     public void calculate(){
         System.out.print("Nhap so dien: ");

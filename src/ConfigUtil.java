@@ -20,6 +20,7 @@ public class ConfigUtil {
             logger.info("Tai file config thanh cong.");
         } catch (IOException e) {
             logger.fatal("Khong the tai file ./src/config.properties", e);
+            System.exit(0);
         }
     }
 
