@@ -43,7 +43,7 @@ public class BaiTap4 {
             if (i > 0){
                 bt4Logger.info("Them sinh vien Thanh Cong");
             } else
-                bt4Logger.error("Them sinh vien That Bai");
+                bt4Logger.warn("Them sinh vien That Bai");
         } catch (SQLException e){
             bt4Logger.error("Truy van that bai", e);
         }
